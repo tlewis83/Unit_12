@@ -1,3 +1,9 @@
+'''
+Tyee Lewis
+Alien Invader Game
+11/16/2025
+This program moves the ship to the left side of the screen and adjust the images to match.
+'''
 import sys
 import pygame
 from settings import Settings

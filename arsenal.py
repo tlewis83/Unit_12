@@ -1,4 +1,5 @@
 import pygame
+import settings
 from bullet import Bullet
 from typing import TYPE_CHECKING
 
@@ -10,6 +11,9 @@ class Arsenal:
         self.game = game
         self.settings = game.settings
         self.arsenal = pygame.sprite.Group()
+        self.screen = game.screen
+
+
 
     def update_arsenal(self):
         self.arsenal.update()
@@ -17,8 +21,9 @@ class Arsenal:
     
     def _remove_bullets_offscreen(self):
         for bullet in self.arsenal.copy():
-            if bullet.rect.bottom <= 0:
+            if bullet.rect.left >= 1200:
                 self.arsenal.remove(bullet)
+                print(1)
 
     def draw(self):
         for bullet in self.arsenal:
