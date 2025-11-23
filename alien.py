@@ -28,9 +28,15 @@ class Alien(Sprite):
 
     def update(self):
         temp_speed = self.settings.fleet_speed
-        self.y += temp_speed
+
+        if self.check_edges():
+            self.settings.fleet_direction *= -1
+
+        self.y += temp_speed * self.settings.fleet_direction
         self.rect.y = self.y
 
+    def check_edges(self):
+        return (self.rect.top >= self.boundaries.bottom or self.rect.bottom <= self.boundaries.top)
 
     def draw_alien(self):
         self.screen.blit(self.image, self.rect)
