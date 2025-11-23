@@ -21,7 +21,7 @@ class Alien(Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
-        #self.rect.midright = game.ship.rect.midright
+        self.rect.midright = self.boundaries.midright
         #self.y = float(self.rect.y)
 
     def update(self):
