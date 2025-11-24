@@ -41,7 +41,7 @@ class AlienFleet:
         fleet_vertical_space = fleet_h * alien_h
         fleet_horizontal_space = fleet_w * alien_w
         y_offset = int((screen_h - fleet_vertical_space)//2)
-        x_offset = int((half_screen-fleet_horizontal_space)//2)
+        x_offset = int((half_screen - fleet_horizontal_space)//2)
         return y_offset,x_offset
 
 
@@ -86,3 +86,6 @@ class AlienFleet:
         alien: 'Alien'
         for alien in self.fleet:
             alien.draw_alien()
+
+    def check_collisions(self, other_group):
+        return pygame.sprite.groupcollide(self.fleet, other_group, True, True)

@@ -23,7 +23,6 @@ class Arsenal:
         for bullet in self.arsenal.copy():
             if bullet.rect.left >= 1200:
                 self.arsenal.remove(bullet)
-                print(1)
 
     def draw(self):
         for bullet in self.arsenal:

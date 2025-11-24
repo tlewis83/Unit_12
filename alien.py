@@ -19,12 +19,17 @@ class Alien(Sprite):
         self.image = pygame.transform.scale(self.image, (self.settings.alien_w, self.settings.alien_h))
 
         self.rect = self.image.get_rect()
-        self.rect.midright = self.boundaries.midright
+        self.left = 0
+        self.centery = self.settings.screen_h // 2
         self.rect.x = x
         self.rect.y = y
         
         self.y = float(self.rect.y)
         self.x = float(self.rect.x)
+
+    def center_alien(self):
+        self.rect.midright = self.boundaries.midright
+        self.y = float(self.rect.y)
 
     def update(self):
         temp_speed = self.settings.fleet_speed
